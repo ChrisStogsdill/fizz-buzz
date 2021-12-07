@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizz Buzz Challenge</title>
+</head>
+<body>
+
+    <header>FIZZ BUZZ CHALLENGE!!</header>
+<p>
+    Type in a random number <input oninput="fizzbuzz()" id="number-field" type="number">
+</p>
+    
+<p id="fizzbuz-response"></p>
+
+
+    <script>
+          function fizzbuzz() {
+            let userInput = document.getElementById("number-field").value;
+            if (userInput % 5 == 0 && userInput % 3 == 0) {
+                document.getElementById("fizzbuz-response").innerHTML = "One data at a time and I can do it"
+            }
+
+            else if (userInput % 5 == 0) {
+                document.getElementById("fizzbuz-response").innerHTML = "one day at a time"
+            }
+
+            else if (userInput % 3 == 0) {
+                document.getElementById("fizzbuz-response").innerHTML = "i can do it"
+            }
+
+            else {
+                document.getElementById("fizzbuz-response").innerHTML = "try a number divisible by 3 or 5"
+            }
+
+        
+        }
+
+    </script>
+
+    
+</body>
+</html>
