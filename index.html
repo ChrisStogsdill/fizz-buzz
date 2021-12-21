@@ -10,33 +10,47 @@
 
     <header>FIZZ BUZZ CHALLENGE!!</header>
 <p>
-    Type in a random number <input oninput="fizzbuzz()" id="number-field" type="number">
+    Type in a random number <input  id="number-field" type="number">
+    <button onclick="fizzbuzz(document.getElementById('number-field').value)">Submit</button>
+    <button onclick="location.reload();">Reset</button>
 </p>
     
-<p id="fizzbuz-response"></p>
+<div id="fizzbuzz-response">
+
+</div>
 
 
     <script>
-          function fizzbuzz() {
-            let userInput = document.getElementById("number-field").value;
-            if (userInput % 5 == 0 && userInput % 3 == 0) {
-                document.getElementById("fizzbuz-response").innerHTML = "One data at a time and I can do it"
+          function fizzbuzz(inputNumber) {
+            let counter = inputNumber;            
+            // old for loop, aka, the easy way
+            //for (let counter =1 ; counter <= inputNumber; counter++) {
+
+                if (inputNumber == 1) {
+                    document.getElementById("fizzbuzz-response").appendChild(document.createElement("p")).appendChild(document.createTextNode(`${counter}`));
+                    return;
+                }
+                //setting recursion loop.
+           fizzbuzz(inputNumber-1);
+
+            if (counter % 3 == 0 && counter % 5 == 0) {
+                document.getElementById("fizzbuzz-response").appendChild(document.createElement("p")).appendChild(document.createTextNode(`${counter} FizzBuzz`));
             }
 
-            else if (userInput % 5 == 0) {
-                document.getElementById("fizzbuz-response").innerHTML = "one day at a time"
+            else if (counter % 3 == 0) {
+                document.getElementById("fizzbuzz-response").appendChild(document.createElement("p")).appendChild(document.createTextNode(`${counter} Fizz`));
             }
-
-            else if (userInput % 3 == 0) {
-                document.getElementById("fizzbuz-response").innerHTML = "i can do it"
+            else if (counter % 5 == 0) {
+                document.getElementById("fizzbuzz-response").appendChild(document.createElement("p")).appendChild(document.createTextNode(`${counter} Buzz`));
             }
-
             else {
-                document.getElementById("fizzbuz-response").innerHTML = "try a number divisible by 3 or 5"
+                document.getElementById("fizzbuzz-response").appendChild(document.createElement("p")).appendChild(document.createTextNode(`${counter}`));
             }
+
+        }
 
         
-        }
+        
 
     </script>
 
